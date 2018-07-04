@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .completed{
+        text-decoration: line-through;
+        color:gray;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Tasks</h1>
+
+    <form id="addTask">
+        <input type="text" id="title">
+        <input type="submit" value="add">
+        <span id="error"></span>
+    </form>
+
+    <div id="tasks"></div>
+    <p>Tasks left: <span id="count"></span></p>
+
+    <!--
+    <div id="tasks"></div>
+    -->
+
+    <!--
+    <script type="text/template" id="task-template">
+        <%- title %> <span class="command">command</span>
+    </script>
+    <script type="text/template" id="task-template">
+        <%- title %>
+    </script>
+    -->
+    <script type="text/template" id="task-template">
+        <input type="checkbox" class="toggle" <%= completed ? 'checked' : '' %>>
+        <span class="<%= completed ? 'completed' : '' %>">
+            <%- title %>
+        </span>
+        <span class="delete">[x]</span>
+    </script>
+    <script src="underscore/underscore-min.js"></script>
+    <script src="backbone/jquery.js"></script>
+    <script src="backbone/backbone-min.js"></script>
+    <script src="backbone/app.js"></script>
+</body>
+</html>

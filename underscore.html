@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="underscore/underscore-min.js"></script>
+    <script>
+        (function(){
+
+            var x
+            x = _.shuffle([2,8,10,13,5]);
+            x = _([2,8,10,13,5]).shuffle()
+
+            _.each([2,5,8],function(num){
+                // console.log(num*2)
+            })
+
+            x = _.map([2,5,8],function(num){
+                return num*2
+            })
+
+            var a=[2,5,8,42,12]
+
+            x = _.find(a,function(num){
+                return num > 5;
+            })
+
+            x = _.filter(a,function(num){
+                return num > 5;
+            })
+
+            x = _.contains(a,5)
+
+            x = _.groupBy(a,function(num){
+                return num % 3
+            })
+            
+            x = _.countBy(a,function(num){
+                return num % 2 === 0 ? 'even' : 'odd'
+            })
+            
+            x = _.sortBy(a,function(num){
+                return num
+            })
+            
+            x = _.sortBy(["me","u","and"],"length")
+            
+            var a=[1,2,5]
+            var b=[5,2,8]
+
+            x = _.union(a,b)
+            x = _.intersection(a,b)
+            x = _.difference(a,b)
+
+            x = _.uniq([2,5,2,10,5])
+
+            var user = {
+                name:'taguchi',
+                score:80,
+                web:'https://dotinstall.com/'
+            }
+
+            x = _.keys(user)
+            x = _.values(user)
+            x = _.invert(user)
+            x = _.has(user,"name")
+            x = _.isString(user.score)  // isEmpty,isNull,isNumber
+
+            x = _.range(1,11)
+            x = _.range(11)
+            x = _.range(1,11,2)
+
+            x = _.random(10)
+            x = _.random(3,10)
+
+            x = _.escape('<script>')
+
+            _.times(5,function(){
+                // console.log('hello')
+            })
+            _(5).times(function(){
+                // console.log('hello')
+            })
+
+            var  c = [2,5,10,8,7]
+            x = _.chain(c)
+                 .shuffle()
+                 .map(function(num){
+                     return num * 2
+                 })
+                 .value()
+
+
+            var compiled = _.template("<li><%- name  %>(<%- score %>)</li>")
+            x = compiled(user)
+
+            console.log(x)
+
+        })()
+    </script>
+</body>
+</html>
